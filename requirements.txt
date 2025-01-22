@@ -1,3 +1,7 @@
-pip install flask flask-sqlalchemy flask-bcrypt flask-wtf flask-login
-pip install email_validator
-pip install dlib
+flask
+flask-sqlalchemy
+flask-bcrypt
+flask-wtf
+flask-login
+email_validator
+dlib
