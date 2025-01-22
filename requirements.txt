@@ -4,4 +4,7 @@ flask-bcrypt
 flask-wtf
 flask-login
 email_validator
-dlib
+numpy
+scipy
+opencv-python
+dlib==19.24.2
