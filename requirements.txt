@@ -4,6 +4,7 @@ flask-bcrypt
 flask-wtf
 flask-login
 email_validator
+cmake
 numpy
 scipy
 opencv-python
