@@ -1,4 +1,4 @@
-wheels/dlib-19.24.2-cp311-cp311-linux_x86_64.whl
+dlib-19.24.99-cp312-cp312-win_amd64.whl
 flask==2.3.2
 flask-sqlalchemy==3.0.5
 flask-bcrypt==1.0.1
