@@ -25,7 +25,7 @@ def download_file(url, save_path):
 
 if __name__ == "__main__":
     # URL to the file you want to download (replace this with the actual URL)
-    file_url = "https://drive.google.com/file/d/1N3hFvwwQ50THJ6MpyDeMASMOScm6V4W-&export=download"
+    file_url = "https://drive.google.com/uc?export=download&id=1N3hFvwwQ50THJ6MpyDeMASMOScm6V4W-"
     # Path where you want to save the file
     save_path = "shape_predictor_68_face_landmarks.dat"  # Save in the project root directory
 
