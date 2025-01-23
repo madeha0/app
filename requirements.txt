@@ -1,4 +1,4 @@
-https://drive.google.com/file/d/1lJrznRMynipjh16soQXJPqkueOg_QtW4/view?usp=drive_link
+https://drive.google.com/file/d/1lJrznRMynipjh16soQXJPqkueOg_QtW4/view?usp=sharing
 flask==2.3.2
 flask-sqlalchemy==3.0.5
 flask-bcrypt==1.0.1
