@@ -1,4 +1,4 @@
-Wheels/dlib-19.24.2-cp311-cp311-manylinux2014_x86_64.whl
+dlib @https://drive.google.com/file/d/1pdmMueZt2h6Z5A8Pqccj1D32C7zDegVr&
 flask==2.3.2
 flask-sqlalchemy==3.0.5
 flask-bcrypt==1.0.1
