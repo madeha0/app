@@ -1,4 +1,4 @@
-dlib @https://drive.google.com/file/d/1pdmMueZt2h6Z5A8Pqccj1D32C7zDegVr&
+dlib @https://drive.google.com/file/d/1pdmMueZt2h6Z5A8Pqccj1D32C7zDegVr&export=download
 flask==2.3.2
 flask-sqlalchemy==3.0.5
 flask-bcrypt==1.0.1
