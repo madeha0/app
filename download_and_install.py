@@ -4,8 +4,8 @@ import subprocess
 def download_and_install():
     # Replace the file ID with your actual file ID
     file_id = "1lJrznRMynipjh16soQXJPqkueOg_QtW4"
-    download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
-    output_file = "dlib.whl"
+    download_url = "https://drive.google.com/uc?export=download&id=1lJrznRMynipjh16soQXJPqkueOg_QtW4"
+    output_file = "downloads/dlib.whl"
 
     # Download the file
     subprocess.run(["curl", "-L", download_url, "-o", output_file], check=True)
