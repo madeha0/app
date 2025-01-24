@@ -15,36 +15,27 @@ def download_file(url, save_path):
     print(f"File size: {os.path.getsize(save_path)} bytes")
 
 def download_and_install():
-    """
-    Downloads a .whl file from Google Drive, renames it for compatibility, 
-    and installs it using pip.
-    """
-    # Google Drive file ID
     file_id = "1lJrznRMynipjh16soQXJPqkueOg_QtW4"
-    download_url = "https://drive.google.com/uc?export=download&id=1lJrznRMynipjh16soQXJPqkueOg_QtW4"
-    # Paths for downloaded and renamed files
+    download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
     output_file = "downloads/dlib_bin-19.24.6-cp311-cp311-manylinux_2_17_x86_64-manylinux2014_x86_64.whl"
     renamed_file = "downloads/dlib-19.24.6-cp311-cp311-manylinux2014_x86_64.whl"
 
-    # Ensure the downloads directory exists
+    # Ensure directory exists
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
-    # Download the file
+    # Download file
     download_file(download_url, output_file)
 
-    # Rename the file for compatibility
+    # Validate the file extension
+    if not output_file.endswith(".whl"):
+        raise ValueError(f"Downloaded file is not a .whl file: {output_file}")
+
+    # Rename the file
     os.rename(output_file, renamed_file)
     print(f"File renamed to: {renamed_file}")
 
-    # Validate the file extension
-    if not renamed_file.endswith(".whl"):
-        raise ValueError(f"Downloaded file is not a valid .whl file: {renamed_file}")
-
-    # Upgrade pip to ensure compatibility
-    subprocess.run(["pip", "install", "--upgrade", "pip"], check=True)
-
-    # Install the renamed .whl file
-    subprocess.run(["pip", "install", "--force-reinstall", "--ignore-installed", output_file, "--no-deps"], check=True)
+    # Install the renamed file
+    subprocess.run(["pip", "install", "--force-reinstall", "--ignore-installed", renamed_file, "--no-deps"], check=True)
     print("Installation complete!")
 
 if __name__ == "__main__":
