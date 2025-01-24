@@ -6,7 +6,7 @@ def download_and_install():
     # Replace the file ID with your actual file ID
     file_id = "1lJrznRMynipjh16soQXJPqkueOg_QtW4"
     download_url = f"https://drive.google.com/uc?id=1lJrznRMynipjh16soQXJPqkueOg_QtW4"
-    output_file = "downloads/dlib.whl"
+    output_file = "downloads/dlib_bin-19.24.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
 
     # Ensure the downloads directory exists
     os.makedirs("downloads", exist_ok=True)
