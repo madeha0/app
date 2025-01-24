@@ -1,28 +1,34 @@
 import os
+import requests
 import subprocess
-import gdown
+
+def download_file(url, save_path):
+    response = requests.get(url, stream=True)
+    response.raise_for_status()
+    with open(save_path, "wb") as file:
+        for chunk in response.iter_content(chunk_size=8192):
+            file.write(chunk)
+    print(f"File downloaded successfully and saved to {save_path}")
+    print(f"File size: {os.path.getsize(save_path)} bytes")
 
 def download_and_install():
-    # Replace the file ID with your actual file ID
     file_id = "1lJrznRMynipjh16soQXJPqkueOg_QtW4"
-    download_url = f"https://drive.google.com/uc?id=1lJrznRMynipjh16soQXJPqkueOg_QtW4"
-    output_file = "downloads/dlib_bin-19.24.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    download_url = f"https://drive.google.com/uc?export=download&id=1lJrznRMynipjh16soQXJPqkueOg_QtW4"
+    output_file = "downloads/dlib.whl"
+    
+    # Ensure directory exists
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    
+    # Download file
+    download_file(download_url, output_file)
 
-    # Ensure the downloads directory exists
-    os.makedirs("downloads", exist_ok=True)
-
-    # Download the file
-    gdown.download(download_url, output_file, quiet=False)
-
-    # Verify the file
-    if not output_file.endswith(".whl") or not os.path.exists(output_file):
-        raise ValueError(f"Downloaded file is invalid: {output_file}")
+    # Validate the file extension
+    if not output_file.endswith(".whl"):
+        raise ValueError(f"Downloaded file is not a .whl file: {output_file}")
 
     # Install the .whl file
     subprocess.run(["pip", "install", output_file, "--no-deps"], check=True)
 
-    # Clean up
-    os.remove(output_file)
-
 if __name__ == "__main__":
     download_and_install()
+
