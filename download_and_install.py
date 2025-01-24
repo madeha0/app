@@ -44,7 +44,7 @@ def download_and_install():
     subprocess.run(["pip", "install", "--upgrade", "pip"], check=True)
 
     # Install the renamed .whl file
-    subprocess.run(["pip", "install", renamed_file, "--no-deps"], check=True)
+    subprocess.run(["pip", "install", "--force-reinstall", "--ignore-installed", output_file, "--no-deps"], check=True)
     print("Installation complete!")
 
 if __name__ == "__main__":
