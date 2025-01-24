@@ -21,7 +21,7 @@ def download_and_install():
     """
     # Google Drive file ID
     file_id = "1lJrznRMynipjh16soQXJPqkueOg_QtW4"
-    download_url = f"https://drive.google.com/uc?export=download&id=1lJrznRMynipjh16soQXJPqkueOg_QtW"
+   download_url = "https://drive.google.com/uc?export=download&id=1lJrznRMynipjh16soQXJPqkueOg_QtW4"
     
     # Paths for downloaded and renamed files
     output_file = "downloads/dlib_bin-19.24.6-cp311-cp311-manylinux_2_17_x86_64-manylinux2014_x86_64.whl"
