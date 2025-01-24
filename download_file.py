@@ -27,7 +27,7 @@ if __name__ == "__main__":
     # URL to the file you want to download (replace this with the actual URL)
     file_url = "https://drive.google.com/uc?export=download&id=1N3hFvwwQ50THJ6MpyDeMASMOScm6V4W-"
     # Path where you want to save the file
-    save_path = "app"  # Save in the project root directory
+    save_path = "downloads/shape_predictor_68_face_landmarks.dat" # Save in the project root directory
 
     # Download the file
     download_file(file_url, save_path)
