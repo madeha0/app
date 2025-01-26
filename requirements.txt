@@ -9,4 +9,5 @@ opencv-python==4.8.0.76
 gunicorn==20.1.0
 imutils
 requests
+dlib
 Wheels/dlib-19.24.99-cp311-cp311-linux_x86_64.whl
