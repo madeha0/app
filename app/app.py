@@ -4,7 +4,8 @@ from drowsiness import generate_frames
 from threading import Event
 import sqlite3
 
-app = Flask(__name__)
+#app = Flask(__name__)
+pp = Flask(__name__, template_folder='app/templates')
 app.secret_key = '608a049abdf8d90355ecfadcedf79b97178fafac8f37f17b0389c2a7aafa4c8c'
 
 # SQLite database file path
