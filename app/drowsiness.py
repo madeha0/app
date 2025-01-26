@@ -12,7 +12,7 @@ COUNTER = 0
 
 # Load Models
 detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-predictor = dlib.shape_predictor(downloads/shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor("downloads/shape_predictor_68_face_landmarks.dat")
 
 def generate_frames(stream_event, model_result):
     global COUNTER
