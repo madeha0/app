@@ -1,23 +1,34 @@
+
 # Use an official Python base image
 FROM python:3.11-slim
+
+# Create a non-root user
+RUN useradd -m appuser
 
 # Set the working directory
 WORKDIR /app
 
-# Install required system packages
+# Install required system packages, including OpenGL and build tools
 RUN apt-get update && apt-get install -y \
     libopenblas-dev \
     liblapack-dev \
-    libx11-dev && \
+    libx11-dev \
+    libgl1 \
+    libglib2.0-0 \
+    cmake \
+    build-essential && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-COPY requirements.txt requirements.txt
-COPY Wheels/ Wheels/
-RUN pip install --no-cache-dir -r requirements.txt
+# Switch to the non-root user
+USER appuser
 
 # Copy application files
-COPY . .
+COPY --chown=appuser:appuser requirements.txt requirements.txt
+COPY --chown=appuser:appuser Wheels/ Wheels/
+COPY --chown=appuser:appuser . .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Set the command to run the app
 CMD ["python", "app/app.py"]
