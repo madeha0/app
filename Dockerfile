@@ -1,4 +1,3 @@
-
 # Use an official Python base image
 FROM python:3.11-slim
 
@@ -8,7 +7,7 @@ RUN useradd -m appuser
 # Set the working directory
 WORKDIR /app
 
-# Install required system packages, including OpenGL and build tools
+# Install required system packages
 RUN apt-get update && apt-get install -y \
     libopenblas-dev \
     liblapack-dev \
@@ -18,6 +17,9 @@ RUN apt-get update && apt-get install -y \
     cmake \
     build-essential && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Add local bin to PATH for appuser
+ENV PATH="/home/appuser/.local/bin:$PATH"
 
 # Switch to the non-root user
 USER appuser
@@ -31,4 +33,4 @@ COPY --chown=appuser:appuser . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Set the command to run the app
-CMD ["python", "app/app.py"]
+CMD ["sh", "-c", "python download.py && python app/app.py"]
