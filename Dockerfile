@@ -33,4 +33,4 @@ COPY --chown=appuser:appuser . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Set the command to run the app
-CMD ["sh", "-c", "python download.py && python app/app.py"]
+CMD ["sh", "-c", "python download_file.py && python app/app.py"]
