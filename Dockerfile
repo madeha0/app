@@ -1,3 +1,4 @@
+
 # Use an official Python base image
 FROM python:3.11-slim
 
@@ -18,6 +19,9 @@ RUN apt-get update && apt-get install -y \
     build-essential && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Create the downloads directory and set permissions
+RUN mkdir -p /app/downloads && chown appuser:appuser /app/downloads
+
 # Add local bin to PATH for appuser
 ENV PATH="/home/appuser/.local/bin:$PATH"
 
@@ -33,4 +37,4 @@ COPY --chown=appuser:appuser . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Set the command to run the app
-CMD ["sh", "-c", "python download_file.py && python app/app.py"]
+CMD ["sh", "-c", "python download.py && python app/app.py"]
